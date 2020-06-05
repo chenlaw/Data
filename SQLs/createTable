@@ -1,0 +1,35 @@
+use schoolc;
+
+drop table if exists accounts;
+drop table if exists student;
+drop table if exists curriculum;
+drop table if exists selections;
+create table accounts
+(
+    acc varchar(12) primary key ,
+    passwd varchar(12),
+    CreateDate timestamp
+);
+create table student(
+    Sno varchar(9) primary key ,
+    Snm varchar(10),
+    Sex varchar(1),
+    Sde varchar(6),
+    Pwd char(6)
+);
+create table curriculum(
+    Cno char(4) primary key ,
+    Cnm varchar(10),
+    Ctm integer,
+    Cpt integer,
+    Tec varchar(20),
+    Pla varchar(18),
+    Share char(1)
+);
+create table selections(
+    Cno char(4) ,
+    Sno char(9) ,
+    Grd integer,
+    foreign key (Cno) references curriculum(Cno),
+    foreign key (Sno) references student(Sno)
+);

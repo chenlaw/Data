@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.Dao.CourseMapper">
+    <select id="getCurriculums" resultMap="course">
+    select * from  curriculum;
+</select>
+    <select id="getCurriculumFromSno" resultMap="course">
+        select * from  curriculum where Cno=#{cno}
+    </select>
+    <select id="" resultMap="course">
+        SELECT * FROM curriculum WHERE Cno IN (
+        <foreach collection="curris" separator="," item="curri">
+            #{curri}
+        </foreach>
+        )
+    </select>
+    <insert id="insertCurriculum">
+        insert into curriculum values (#{array[0]},#{array[1]},#{array[2]},#{array[3]},#{array[4]},#{array[5]},#{array[6]});
+    </insert>
+    <resultMap id="course" type="com.example.demo.po.Curriculum">
+    </resultMap>
+</mapper>
