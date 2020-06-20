@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Choices>
+  <choice>
+    <学生编号>123456789</学生编号>
+    <课程编号>12345689</课程编号>
+    <得分>99311</得分>
+  </choice>
+</Choices>
