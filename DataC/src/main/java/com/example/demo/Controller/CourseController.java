@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.Dao.CourseMapper;
 import com.example.demo.Service.CourseService;
 import com.example.demo.po.Curriculum;
+import com.example.demo.utils.FileUtil;
 import com.example.demo.utils.XMLUtil;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -38,13 +39,17 @@ public class CourseController {
     CourseService courseService;
     @Autowired
     CourseMapper mapper;
+    @Autowired
+    XMLUtil util;
     @GetMapping("/share")
     public String downloadFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
         return courseService.share();
     }
     @PostMapping("/shared")
-     public String upload(@RequestParam("file") MultipartFile file) throws SAXException, IOException, DocumentException, ParserConfigurationException {
-        XMLUtil.validate((File) file,"s");
+     public String upload(@RequestParam("file") MultipartFile mfile) throws SAXException, IOException, DocumentException, ParserConfigurationException {
+       File file= FileUtil.MultipartFileToFile(mfile);
+        //XMLUtil.validate( file,"s");
+        util.analytical( file);
         return "true";
     }
     @GetMapping("/getCourses")
