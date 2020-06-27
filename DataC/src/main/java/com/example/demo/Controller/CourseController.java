@@ -5,6 +5,7 @@ import com.example.demo.Service.CourseService;
 import com.example.demo.po.Curriculum;
 import com.example.demo.utils.FileUtil;
 import com.example.demo.utils.XMLUtil;
+import com.example.demo.vo.ResponseVO;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.io.OutputFormat;
@@ -20,9 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.rowset.spi.XmlWriter;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
@@ -42,18 +41,18 @@ public class CourseController {
     @Autowired
     XMLUtil util;
     @GetMapping("/share")
-    public String downloadFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public ResponseVO downloadFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
         return courseService.share();
     }
     @PostMapping("/shared")
-     public String upload(@RequestParam("file") MultipartFile mfile) throws SAXException, IOException, DocumentException, ParserConfigurationException {
+     public ResponseVO upload(@RequestParam("file") MultipartFile mfile) throws SAXException, IOException, DocumentException, ParserConfigurationException {
        File file= FileUtil.MultipartFileToFile(mfile);
         //XMLUtil.validate( file,"s");
         util.analytical( file);
-        return "true";
+        return ResponseVO.buildSuccess();
     }
     @GetMapping("/getCourses")
-    public List<Curriculum> getCourses(){
+    public ResponseVO getCourses(){
         return courseService.getCourses();
     }
     @GetMapping("/test")

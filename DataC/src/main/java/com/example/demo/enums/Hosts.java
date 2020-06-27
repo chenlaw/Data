@@ -1,7 +1,7 @@
 package com.example.demo.enums;
 
 public enum Hosts {
-    hosta("红色", 1), hostb("绿色", 2), hostc("白色", 3), host("黄色", 4);
+    hosta("http://localhost:8080", 1), hostb("http://localhost:8081", 2), hostc("http://localhost:8082", 3), host("http://localhost:8083", 4);
 
     Hosts(String 红色, int i) {
     }

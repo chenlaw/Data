@@ -6,7 +6,9 @@ import com.example.demo.Dao.UserMapper;
 import com.example.demo.po.Curriculum;
 import com.example.demo.po.Student;
 import com.example.demo.utils.FileUtil;
+import com.example.demo.utils.HttpUtil;
 import com.example.demo.vo.LogForm;
+import com.example.demo.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,23 +33,33 @@ public class UserService {
     CourseMapper courseMapper;
     @Autowired
     SelectionMapper selectionMapper;
-    public String login(LogForm form) {
-        return "a";
+    public ResponseVO login(LogForm form) {
+        Student student=mapper.getStudentFromSno(form.getPassWd());
+        if(student==null)
+            return ResponseVO.buildFailure("用户名或密码错误");
+        else if(student.getPwd()!=form.getPassWd()){
+            return ResponseVO.buildFailure("用户名或密码错误");
+        }else
+            return ResponseVO.buildSuccess()
     }
 
-    public String pickCourse(String sno, String cno) throws IOException, JAXBException {
+    public ResponseVO pickCourse(String sno, String cno) throws IOException, JAXBException {
         Student s=mapper.getStudentFromSno(sno);
         Curriculum c=courseMapper.getCurriculumFromSno(sno);
         if(c.getShare()=='C')
             selectionMapper.insertData(cno,sno);
+        return ResponseVO.buildSuccess();
         else{
             String ht=String.valueOf(c.getShare());
             String path=getUserXml(s);
-            FileUtil.uploadFile(ht,path);
+            boolean res=HttpUtil.sendFile(ht,path);
+            if(res) {
+                selectionMapper.insertData(cno, sno);
+                return ResponseVO.buildSuccess();
+            }
+            else
+                return ResponseVO.buildFailure("选课失败");
         }
-
-
-        return "yes";
     }
     public String getUserXml(Student student) throws IOException, JAXBException {
         JAXBContext context = JAXBContext.newInstance(Student.class);
@@ -65,13 +77,13 @@ public class UserService {
         return filepath;
     }
 
-    public List<Curriculum> getDecidedCourse(String sno) {
+    public ResponseVO getDecidedCourse(String sno) {
         List<String> curris=selectionMapper.getDataBySno(sno);
         List<Curriculum> curricula=courseMapper.getCurriculumsfromCnos(curris);
-        return curricula;
+        return ResponseVO.buildSuccess(curricula);
     }
 
-    public String dropCourse(String sno, String cno) throws IOException, JAXBException {
+    public ResponseVO dropCourse(String sno, String cno) throws IOException, JAXBException {
         Student s=mapper.getStudentFromSno(sno);
         Curriculum c=courseMapper.getCurriculumFromSno(sno);
         if(c.getShare()=='C')
@@ -79,8 +91,13 @@ public class UserService {
         else {
             String ht=String.valueOf(c.getShare());
             String path=getUserXml(s);
-            FileUtil.uploadFile(ht,path);
+           boolean res=HttpUtil.sendFile(ht,path);
+           if(res){
+               selectionMapper.deleteData(cno,sno);
+
+           }
+
         }
-        return "yes";
+        return ResponseVO.buildSuccess();
     }
 }

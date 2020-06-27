@@ -3,6 +3,8 @@ package com.example.demo.Service;
 import com.example.demo.Dao.CourseMapper;
 import com.example.demo.po.Curriculum;
 import com.example.demo.utils.FileUtil;
+import com.example.demo.utils.HttpUtil;
+import com.example.demo.vo.ResponseVO;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +29,7 @@ import java.util.List;
 public class CourseService {
     @Autowired
     CourseMapper mapper;
-    public String share() throws IOException {
+    public ResponseVO share() throws IOException {
         List<Curriculum> curricula=mapper.getCurriculums();
         Document  doc=DocumentHelper.createDocument();
         Element root=doc.addElement("Classess");
@@ -48,19 +50,23 @@ public class CourseService {
             Element share=emp.addElement("Share");
             share.setText(String.valueOf(curricula.get(i).getShare()));
         }
-        Writer w=new FileWriter("F:\\shareClass.xml");
+        String filepath="src\\main\\resources\\temp\\shareClass.xml"
+        Writer w=new FileWriter(filepath);
         OutputFormat opf=OutputFormat.createPrettyPrint();
         opf.setEncoding("GB2312");
         XMLWriter xw= new XMLWriter(w, opf);
         xw.write(doc);
         xw.close();
         w.close();
-        String urls="";
-        FileUtil.uploadFile(urls,"F:\\shareClass.xml");
-        return "1";
+        String urls="http://localhost:8080/";
+        boolean res= HttpUtil.sendFile(urls,filepath);
+        if(res)
+            return ResponseVO.buildSuccess();
+        else
+            return ResponseVO.buildFailure("通讯失败");
     }
 
-    public List<Curriculum> getCourses() {
-        return mapper.getCurriculums();
+    public ResponseVO getCourses() {
+        return ResponseVO.buildSuccess(mapper.getCurriculums());
     }
 }

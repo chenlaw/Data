@@ -5,6 +5,7 @@ import com.example.demo.Service.UserService;
 import com.example.demo.po.Curriculum;
 import com.example.demo.po.Student;
 import com.example.demo.vo.LogForm;
+import com.example.demo.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,15 +25,15 @@ public class UserController {
     UserService userService;
     @PostMapping("/log")
     @ResponseBody
-    public String log(@RequestBody LogForm form){
+    public ResponseVO log(@RequestBody LogForm form){
         return userService.login(form);
     }
     @GetMapping("/pick")
-    public String pickCourse(@RequestParam("Sno") String sno,@RequestParam("Cno") String cno) throws IOException, JAXBException {
+    public ResponseVO pickCourse(@RequestParam("Sno") String sno,@RequestParam("Cno") String cno) throws IOException, JAXBException {
         return userService.pickCourse(sno,cno);
     }
     @GetMapping("/course")
-    public List<Curriculum> getDecidedCourse(@RequestParam("Sno") String sno){
+    public ResponseVO getDecidedCourse(@RequestParam("Sno") String sno){
         return userService.getDecidedCourse(sno);
     }
     @GetMapping("/dropCourse")
