@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Students>
+  <student>
+      <学号>asdf</学号>
+      <名称>dafs</名称>
+      <性别>dasf</性别>
+      <院系>adsf</院系>
+  </student>
+</Students>

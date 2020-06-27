@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86cccfdc-ea25-45e1-bc9c-9634d574b6ef" name="Default Changelist" comment="" />
+    <list default="true" id="3b256ed0-f55f-419d-b128-9968d275f199" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,8 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1co0nkyaiUOaKJ9NJWgO6Dv3y7h" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1dqcTN5UDKWvhUnwxwZqPaKZtT9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -29,46 +28,38 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\15535\Desktop\软工三\connection\src\main\resources\Cxml" />
+      <recent name="C:\Users\15535\Desktop\connection\src\main\java\com\example\connection" />
+      <recent name="C:\Users\15535\Desktop\connection\src\main\java\com\example\connection\utils" />
+      <recent name="C:\Users\15535\Desktop\connection\src\main\resources\static" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="start" />
+    <configuration name="ConnectionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="connection" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.connection.ConnectionApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.start" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="86cccfdc-ea25-45e1-bc9c-9634d574b6ef" name="Default Changelist" comment="" />
-      <created>1591179807525</created>
+      <changelist id="3b256ed0-f55f-419d-b128-9968d275f199" name="Default Changelist" comment="" />
+      <created>1593156071180</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1591179807525</updated>
-      <workItem from="1592713968580" duration="2873000" />
+      <updated>1593156071180</updated>
+      <workItem from="1593246958386" duration="374000" />
     </task>
     <servers />
   </component>
@@ -76,34 +67,48 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="255" y="0" key="#Project_Structure" timestamp="1592725613484">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="202" y="50" key="#Project_Structure/0.0.1216.781@0.0.1216.781" timestamp="1591181159422" />
-    <state x="255" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1592725613484" />
-    <state x="362" y="194" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591245964972">
+    <state x="390" y="146" key="FileChooserDialogImpl" timestamp="1593244321495">
       <screen x="0" y="0" width="1216" height="781" />
     </state>
-    <state x="362" y="194" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1216.781@0.0.1216.781" timestamp="1591245964972" />
-    <state width="1173" height="196" key="GridCell.Tab.0.bottom" timestamp="1591252202849">
+    <state x="390" y="146" key="FileChooserDialogImpl/0.0.1216.781@0.0.1216.781" timestamp="1593244321495" />
+    <state width="1173" height="196" key="GridCell.Tab.0.bottom" timestamp="1593245250178">
       <screen x="0" y="0" width="1216" height="781" />
     </state>
-    <state width="1173" height="196" key="GridCell.Tab.0.bottom/0.0.1216.781@0.0.1216.781" timestamp="1591252202849" />
-    <state width="1173" height="196" key="GridCell.Tab.0.center" timestamp="1591252202849">
+    <state width="1173" height="196" key="GridCell.Tab.0.bottom/0.0.1216.781@0.0.1216.781" timestamp="1593245250178" />
+    <state width="1173" height="196" key="GridCell.Tab.0.center" timestamp="1593245250178">
       <screen x="0" y="0" width="1216" height="781" />
     </state>
-    <state width="1173" height="196" key="GridCell.Tab.0.center/0.0.1216.781@0.0.1216.781" timestamp="1591252202849" />
-    <state width="1173" height="196" key="GridCell.Tab.0.left" timestamp="1591252202849">
+    <state width="1173" height="196" key="GridCell.Tab.0.center/0.0.1216.781@0.0.1216.781" timestamp="1593245250178" />
+    <state width="1173" height="196" key="GridCell.Tab.0.left" timestamp="1593245250177">
       <screen x="0" y="0" width="1216" height="781" />
     </state>
-    <state width="1173" height="196" key="GridCell.Tab.0.left/0.0.1216.781@0.0.1216.781" timestamp="1591252202849" />
-    <state width="1173" height="196" key="GridCell.Tab.0.right" timestamp="1591252202849">
+    <state width="1173" height="196" key="GridCell.Tab.0.left/0.0.1216.781@0.0.1216.781" timestamp="1593245250177" />
+    <state width="1173" height="196" key="GridCell.Tab.0.right" timestamp="1593245250178">
       <screen x="0" y="0" width="1216" height="781" />
     </state>
-    <state width="1173" height="196" key="GridCell.Tab.0.right/0.0.1216.781@0.0.1216.781" timestamp="1591252202849" />
-    <state x="140" y="46" key="Maven.ArtifactSearchDialog" timestamp="1591183803241">
+    <state width="1173" height="196" key="GridCell.Tab.0.right/0.0.1216.781@0.0.1216.781" timestamp="1593245250178" />
+    <state x="140" y="46" key="Maven.ArtifactSearchDialog" timestamp="1593158227603">
       <screen x="0" y="0" width="1216" height="781" />
     </state>
-    <state x="140" y="46" key="Maven.ArtifactSearchDialog/0.0.1216.781@0.0.1216.781" timestamp="1591183803241" />
+    <state x="140" y="46" key="Maven.ArtifactSearchDialog/0.0.1216.781@0.0.1216.781" timestamp="1593158227603" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/connection/utils/start.java</url>
+          <line>38</line>
+          <properties class="com.example.connection.utils.start" method="checkXML">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/connection/service/CommandGet.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

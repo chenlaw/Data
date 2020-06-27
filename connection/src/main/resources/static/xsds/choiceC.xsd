@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="choices">
+        <xs:complexType >
+            <xs:sequence>
+                <xs:element name="choice" maxOccurs="50">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Sno">
+
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:maxLength value="12"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+
+                            </xs:element>
+                            <xs:element name="Cno">
+
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:length value="9"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+
+                            </xs:element>
+                            <xs:element name="Grd">
+
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:unsignedByte">
+                                        <xs:maxInclusive value="100"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
