@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Students>
+    <student>
+        <Sno>asdf</Sno>
+        <Snm>dafs</Snm>
+        <Sex>dasf</Sex>
+        <Sdo>adsf</Sdo>
+    </student>
+</Students>

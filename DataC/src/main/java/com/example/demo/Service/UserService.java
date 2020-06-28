@@ -46,9 +46,9 @@ public class UserService {
     public ResponseVO pickCourse(String sno, String cno) throws IOException, JAXBException {
         Student s=mapper.getStudentFromSno(sno);
         Curriculum c=courseMapper.getCurriculumFromSno(sno);
-        if(c.getShare()=='C')
+        if(c.getShare()=='C'){
             selectionMapper.insertData(cno,sno);
-        return ResponseVO.buildSuccess();
+        return ResponseVO.buildSuccess();}
         else{
             String ht=String.valueOf(c.getShare());
             String path=getUserXml(s);
@@ -70,7 +70,7 @@ public class UserService {
         // 构建输出环境 -> 这里使用标准输出，输出到控制台Console
 
         // 将所需对象序列化 -> 该方法没有返回值
-        String filepath="F:\\"+student.getSno()+".xml";
+        String filepath="src\\main\\resources\\temp\\"+student.getSno()+".xml";
         Writer w=new FileWriter(filepath);
         marshaller.marshal(student,w);
         w.close();

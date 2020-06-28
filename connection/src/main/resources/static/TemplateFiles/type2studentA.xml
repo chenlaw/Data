@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<Students>
+  <student>
+    <学号>asdf</学号>
+    <名称>dafs</名称>
+    <性别>dasf</性别>
+    <专业>adsf</专业>
+  </student>
+</Students>

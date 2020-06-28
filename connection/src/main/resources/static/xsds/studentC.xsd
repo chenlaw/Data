@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="gb2312" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="students">
+    <xs:element name="Students">
         <xs:complexType >
             <xs:sequence>
                 <xs:element name="student" maxOccurs="50">

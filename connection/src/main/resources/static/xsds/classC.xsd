@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="gb2312" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="classes">
+    <xs:element name="Classes">
         <xs:complexType >
             <xs:sequence>
                 <xs:element name="class" maxOccurs="50">
@@ -24,7 +24,7 @@
                                 </xs:simpleType>
 
                             </xs:element>
-                            <xs:element name="ctm" type="xs:unsignedByte"/>
+                            <xs:element name="time" type="xs:unsignedByte"/>
                             <xs:element name="cpt">
 
                                 <xs:simpleType>

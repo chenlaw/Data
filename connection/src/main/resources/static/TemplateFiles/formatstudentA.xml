@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<Students>
+  <student>
+    <id>asdf</id>
+    <name>dafs</name>
+    <sex>dasf</sex>
+    <major>adsf</major>
+  </student>
+</Students>
