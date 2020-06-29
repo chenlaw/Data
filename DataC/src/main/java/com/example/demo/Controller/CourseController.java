@@ -40,17 +40,29 @@ public class CourseController {
     CourseMapper mapper;
     @Autowired
     XMLUtil util;
-    @GetMapping("/share")
-    public ResponseVO downloadFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        return courseService.share();
+    //分享课程第一步
+    //内部调用 服务器/course/share
+    @GetMapping("wantToShare")
+    public ResponseVO getShare(){
+        return courseService.getShare("C");
     }
+    //此接口将本地课程数据传给中间服务器
+    //接口 /course/share?to=?
+    //内部调用：服务器的/course/receiveShare?class.xml={file}&to=?
+    @GetMapping("/share")
+    public ResponseVO downloadFile(@RequestParam("to") String to) throws IOException {
+        return courseService.share(to);
+    }
+    //分享的文件发向这里
+    //接口 /course/shared?file=file&from=?
     @PostMapping("/shared")
-     public ResponseVO upload(@RequestParam("file") MultipartFile mfile) throws SAXException, IOException, DocumentException, ParserConfigurationException {
+     public ResponseVO upload(@RequestParam("file") MultipartFile mfile,@RequestParam("from") String share) throws SAXException, IOException, DocumentException, ParserConfigurationException {
        File file= FileUtil.MultipartFileToFile(mfile);
         //XMLUtil.validate( file,"s");
-        util.analytical( file);
+        util.analytical( file,share);
         return ResponseVO.buildSuccess();
     }
+    //供给前端选择课程.
     @GetMapping("/getCourses")
     public ResponseVO getCourses(){
         return courseService.getCourses();

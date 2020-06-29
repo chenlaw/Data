@@ -63,7 +63,7 @@ public class XMLUtil {
 
 
     //todo:考虑专门化插入对应课程。可能除了xml文件，附加的参数不同。
-    public void analytical(File file) throws FileNotFoundException, DocumentException {
+    public void analytical(File file,String share) throws FileNotFoundException, DocumentException {
        SAXReader saxReader=new SAXReader();
        Document document=saxReader.read(new FileReader(file));
         Element root=document.getRootElement();
@@ -75,7 +75,7 @@ public class XMLUtil {
                 course.add(temp.getStringValue());
             }
             String[] data=course.toArray(new String[course.size()+1]);
-            data[data.length-1]="A";
+            data[data.length-1]=share;
             mapper.insertCurriculum( data);
         }
     }

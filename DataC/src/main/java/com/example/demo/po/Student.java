@@ -15,6 +15,6 @@ public class Student {
     String Sno;
     String Snm;
     String Sex;
-    String Sde;
+    String Sde;//院系，这里作为分辩来源
     String Pwd;
 }

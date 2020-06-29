@@ -12,3 +12,5 @@ spring:
     time-zone: GMT+8
 mybatis:
   mapper-locations: /dataImpl/*.xml
+server:
+  port: 8083

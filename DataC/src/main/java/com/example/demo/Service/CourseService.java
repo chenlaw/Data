@@ -8,6 +8,7 @@ import com.example.demo.vo.ResponseVO;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +17,8 @@ import javax.sql.rowset.WebRowSet;
 import javax.sql.rowset.spi.XmlWriter;
 import java.io.*;
 import org.dom4j.*;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -29,7 +32,7 @@ import java.util.List;
 public class CourseService {
     @Autowired
     CourseMapper mapper;
-    public ResponseVO share() throws IOException {
+    public ResponseVO share(String to) throws IOException {
         List<Curriculum> curricula=mapper.getCurriculums();
         Document  doc=DocumentHelper.createDocument();
         Element root=doc.addElement("Classess");
@@ -50,7 +53,7 @@ public class CourseService {
             Element share=emp.addElement("Share");
             share.setText(String.valueOf(curricula.get(i).getShare()));
         }
-        String filepath="src\\main\\resources\\temp\\shareClass.xml"
+        String filepath="src\\main\\resources\\temp\\shareClass.xml";
         Writer w=new FileWriter(filepath);
         OutputFormat opf=OutputFormat.createPrettyPrint();
         opf.setEncoding("GB2312");
@@ -58,8 +61,14 @@ public class CourseService {
         xw.write(doc);
         xw.close();
         w.close();
-        String urls="http://localhost:8080/";
-        boolean res= HttpUtil.sendFile(urls,filepath);
+        String urls="http://localhost:8080/course/receiveShare";
+        MultiValueMap<String, Object> param=new LinkedMultiValueMap<>();
+        File file = new File(filepath);
+        // 文件必须封装成FileSystemResource这个类型后端才能收到附件
+        FileSystemResource resource = new FileSystemResource(file);
+        param.add("class.xml",resource);
+        param.add("to",to);
+        boolean res= HttpUtil.sendFile(urls,param);
         if(res)
             return ResponseVO.buildSuccess();
         else
@@ -68,5 +77,14 @@ public class CourseService {
 
     public ResponseVO getCourses() {
         return ResponseVO.buildSuccess(mapper.getCurriculums());
+    }
+
+    public ResponseVO getShare(String c) {
+        String urls="http://localhost:8080/course/share";
+        MultiValueMap<String, Object> param=new LinkedMultiValueMap<>();
+        param.add("type",c);
+        HttpUtil.sendFile(urls,param);
+        return ResponseVO.buildSuccess();
+
     }
 }

@@ -10,11 +10,15 @@ import com.example.demo.utils.HttpUtil;
 import com.example.demo.vo.LogForm;
 import com.example.demo.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
@@ -40,7 +44,7 @@ public class UserService {
         else if(student.getPwd()!=form.getPassWd()){
             return ResponseVO.buildFailure("用户名或密码错误");
         }else
-            return ResponseVO.buildSuccess()
+            return ResponseVO.buildSuccess();
     }
 
     public ResponseVO pickCourse(String sno, String cno) throws IOException, JAXBException {
@@ -50,9 +54,15 @@ public class UserService {
             selectionMapper.insertData(cno,sno);
         return ResponseVO.buildSuccess();}
         else{
-            String ht=String.valueOf(c.getShare());
+            String ht="http://localhost:8080/course/choose";
             String path=getUserXml(s);
-            boolean res=HttpUtil.sendFile(ht,path);
+            MultiValueMap<String, Object> param=new LinkedMultiValueMap<>();
+            File file = new File(path);
+            // 文件必须封装成FileSystemResource这个类型后端才能收到附件
+            FileSystemResource resource = new FileSystemResource(file);
+            param.add("student",resource);
+            param.add("class",cno);
+            boolean res=HttpUtil.sendFile(ht,param);
             if(res) {
                 selectionMapper.insertData(cno, sno);
                 return ResponseVO.buildSuccess();
@@ -89,9 +99,15 @@ public class UserService {
         if(c.getShare()=='C')
             selectionMapper.deleteData(cno,sno);
         else {
-            String ht=String.valueOf(c.getShare());
+            String ht="http://localhost:8080/course/drop";
             String path=getUserXml(s);
-           boolean res=HttpUtil.sendFile(ht,path);
+            MultiValueMap<String, Object> param=new LinkedMultiValueMap<>();
+            File file = new File(path);
+            // 文件必须封装成FileSystemResource这个类型后端才能收到附件
+            FileSystemResource resource = new FileSystemResource(file);
+            param.add("student",resource);
+            param.add("class",cno);
+           boolean res=HttpUtil.sendFile(ht,param);
            if(res){
                selectionMapper.deleteData(cno,sno);
 
