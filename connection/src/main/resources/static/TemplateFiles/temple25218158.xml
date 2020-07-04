@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Classes>
+  <class>
+    <id>1</id>
+    <name>2</name>
+    <score>4</score>
+    <teacher>4</teacher>
+    <location>4</location>
+  </class>
+  <class>
+    <id>1239</id>
+    <name>se</name>
+    <score>3</score>
+    <teacher>asdfasd</teacher>
+    <location>nju</location>
+  </class>
+  <class>
+    <id>129</id>
+    <name>se</name>
+    <score>3</score>
+    <teacher>asdfasd</teacher>
+    <location>nju</location>
+  </class>
+  <class>
+    <id>4545</id>
+    <name>2</name>
+    <score>4</score>
+    <teacher>5</teacher>
+    <location>6</location>
+  </class>
+</Classes>

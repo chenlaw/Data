@@ -15,7 +15,7 @@
                                 </xs:simpleType>
 
                             </xs:element>
-                            <xs:element name="姓名">
+                            <xs:element name="名称">
 
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
@@ -32,7 +32,7 @@
                                 </xs:simpleType>
 
                             </xs:element>
-                            <xs:element name="院系">
+                            <xs:element name="专业">
 
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">

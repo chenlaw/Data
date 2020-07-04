@@ -6,16 +6,16 @@
                 <xs:element name="class" maxOccurs="50">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="cno">
+                            <xs:element name="Cno">
 
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
-                                        <xs:length value="9"/>
+                                        <xs:maxLength value="9"/>
                                     </xs:restriction>
                                 </xs:simpleType>
 
                             </xs:element>
-                            <xs:element name="cnm">
+                            <xs:element name="Cnm">
 
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
@@ -24,8 +24,7 @@
                                 </xs:simpleType>
 
                             </xs:element>
-                            <xs:element name="time" type="xs:unsignedByte"/>
-                            <xs:element name="cpt">
+                            <xs:element name="Cpt">
 
                                 <xs:simpleType>
                                     <xs:restriction base="xs:unsignedByte">

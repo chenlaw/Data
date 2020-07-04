@@ -9,6 +9,11 @@ import com.example.demo.utils.FileUtil;
 import com.example.demo.utils.HttpUtil;
 import com.example.demo.vo.LogForm;
 import com.example.demo.vo.ResponseVO;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.XMLWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Service;
@@ -49,19 +54,21 @@ public class UserService {
 
     public ResponseVO pickCourse(String sno, String cno) throws IOException, JAXBException {
         Student s=mapper.getStudentFromSno(sno);
-        Curriculum c=courseMapper.getCurriculumFromSno(sno);
+        Curriculum c=courseMapper.getCurriculumFromSno(cno);
         if(c.getShare()=='C'){
             selectionMapper.insertData(cno,sno);
         return ResponseVO.buildSuccess();}
         else{
-            String ht="http://localhost:8080/course/choose";
+            String ht="http://localhost:8080/course/pick";
             String path=getUserXml(s);
             MultiValueMap<String, Object> param=new LinkedMultiValueMap<>();
             File file = new File(path);
             // 文件必须封装成FileSystemResource这个类型后端才能收到附件
             FileSystemResource resource = new FileSystemResource(file);
             param.add("student",resource);
-            param.add("class",cno);
+            param.add("Cno",cno);
+            param.add("Sno",sno);
+            param.add("to",String.valueOf(c.getShare()));
             boolean res=HttpUtil.sendFile(ht,param);
             if(res) {
                 selectionMapper.insertData(cno, sno);
@@ -72,17 +79,27 @@ public class UserService {
         }
     }
     public String getUserXml(Student student) throws IOException, JAXBException {
-        JAXBContext context = JAXBContext.newInstance(Student.class);
-        // 创建 Marshaller 实例
-        Marshaller marshaller = context.createMarshaller();
-        // 设置转换参数 -> 这里举例是告诉序列化器是否格式化输出
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        // 构建输出环境 -> 这里使用标准输出，输出到控制台Console
 
-        // 将所需对象序列化 -> 该方法没有返回值
-        String filepath="src\\main\\resources\\temp\\"+student.getSno()+".xml";
+        Document doc= DocumentHelper.createDocument();
+        Element root=doc.addElement("Students");
+
+            Element emp=root.addElement("student");
+            Element c=emp.addElement("Sno");
+            c.setText(student.getSno());
+            Element cnm=emp.addElement("Snm");
+            cnm.setText(student.getSnm());
+            Element ctm=emp.addElement("CSex");
+            ctm.setText(student.getSex());
+            Element cpt=emp.addElement("Sde");
+            cpt.setText(student.getSde());
+
+        String filepath="src\\main\\resources\\temp\\student.xml";
         Writer w=new FileWriter(filepath);
-        marshaller.marshal(student,w);
+        OutputFormat opf=OutputFormat.createPrettyPrint();
+        opf.setEncoding("GB2312");
+        XMLWriter xw= new XMLWriter(w, opf);
+        xw.write(doc);
+        xw.close();
         w.close();
         return filepath;
     }

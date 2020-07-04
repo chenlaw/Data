@@ -10,12 +10,12 @@
 
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
-                                        <xs:length value="9"/>
+                                        <xs:maxLength value="9"/>
                                     </xs:restriction>
                                 </xs:simpleType>
 
                             </xs:element>
-                            <xs:element name="课程名称">
+                            <xs:element name="名称">
 
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
@@ -24,7 +24,6 @@
                                 </xs:simpleType>
 
                             </xs:element>
-                            <xs:element name="time" type="xs:unsignedByte"/>
                             <xs:element name="学分">
 
                                 <xs:simpleType>
@@ -34,7 +33,7 @@
                                 </xs:simpleType>
 
                             </xs:element>
-                            <xs:element name="授课老师">
+                            <xs:element name="老师">
 
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">

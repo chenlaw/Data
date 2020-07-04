@@ -35,23 +35,19 @@ public class CourseService {
     public ResponseVO share(String to) throws IOException {
         List<Curriculum> curricula=mapper.getCurriculums();
         Document  doc=DocumentHelper.createDocument();
-        Element root=doc.addElement("Classess");
+        Element root=doc.addElement("Classes");
         for(int i=0;i<curricula.size();i++){
             Element emp=root.addElement("class");
             Element c=emp.addElement("Cno");
             c.setText(curricula.get(i).getCno());
             Element cnm=emp.addElement("Cnm");
             cnm.setText(curricula.get(i).getCnm());
-            Element ctm=emp.addElement("Ctm");
-            cnm.setText(String.valueOf(curricula.get(i).getCtm()));
             Element cpt=emp.addElement("Cpt");
             cpt.setText(String.valueOf(curricula.get(i).getCpt()));
             Element tec=emp.addElement("Tec");
             tec.setText(curricula.get(i).getTec());
             Element pla=emp.addElement("Pla");
             pla.setText(curricula.get(i).getPla());
-            Element share=emp.addElement("Share");
-            share.setText(String.valueOf(curricula.get(i).getShare()));
         }
         String filepath="src\\main\\resources\\temp\\shareClass.xml";
         Writer w=new FileWriter(filepath);
@@ -67,6 +63,7 @@ public class CourseService {
         // 文件必须封装成FileSystemResource这个类型后端才能收到附件
         FileSystemResource resource = new FileSystemResource(file);
         param.add("class.xml",resource);
+        param.add("from","C");
         param.add("to",to);
         boolean res= HttpUtil.sendFile(urls,param);
         if(res)

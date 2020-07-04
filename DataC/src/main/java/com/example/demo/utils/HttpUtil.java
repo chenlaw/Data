@@ -17,7 +17,7 @@ public class HttpUtil {
         RestTemplate restTemplate = new RestTemplate(requestFactory);
         String ss = restTemplate.postForObject(url0, param, String.class);
         System.out.println(ss);
-        if(ss!=null)
+        if(ss==null)
             return true;
         return false;
     }

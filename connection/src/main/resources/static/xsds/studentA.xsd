@@ -15,7 +15,7 @@
                                 </xs:simpleType>
 
                             </xs:element>
-                            <xs:element name="Ãû³Æ">
+                            <xs:element name="ÐÕÃû">
 
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">

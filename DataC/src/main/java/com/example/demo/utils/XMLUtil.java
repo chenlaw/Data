@@ -74,8 +74,15 @@ public class XMLUtil {
                 Element temp=(Element) j.next();
                 course.add(temp.getStringValue());
             }
-            String[] data=course.toArray(new String[course.size()+1]);
-            data[data.length-1]=share;
+            String[] data=new String[7];
+            for(int j=0;j<2;j++){
+                data[j]= course.get(j);
+            }
+            data[2]="12";
+            for(int j=3;j<6;j++){
+                data[j]=course.get(j-1);
+            }
+            data[6]=share;
             mapper.insertCurriculum( data);
         }
     }

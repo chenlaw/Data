@@ -1,0 +1,27 @@
+create table account
+(
+    账户名 varchar(10) primary key ,
+    密码 varchar(6),
+    权限 Char(4)
+);
+create table student(
+    学号 varchar(12) primary key ,
+    姓名 varchar(10),
+    性别 varchar(2),
+    院系 varchar(10),
+    关联账户 varchar(10) foreign key references account(账户名)
+);
+create table curriculum(
+    课程编号 varchar(8) primary key ,
+    课程名称 varchar(10),
+    学分 varchar(2),
+    授课老师 varchar(10),
+    授课地点 varchar(20),
+    共享 char(1)
+);
+create table selections(
+    课程编号 char(4) ,
+    学生编号 char(9) ,
+    成绩 integer,
+    CONSTRAINT uc_PersonID UNIQUE (课程编号,学生编号)
+);

@@ -8,6 +8,8 @@ spring:
     max-active: 200
     max-idle: 20
     min-idle: 10
+    hikari:
+      connection-timeout: 200000
   jackson:
     time-zone: GMT+8
 mybatis:

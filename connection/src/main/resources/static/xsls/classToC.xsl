@@ -6,12 +6,12 @@
         <Classes>
             <xsl:for-each select="class">
                 <class>
-                    <cno>
+                    <Cno>
                         <xsl:value-of select="id"/>
-                    </cno>
-                    <cnm><xsl:value-of select="name"/></cnm>
-                    <cpt><xsl:value-of select="score"/></cpt>
-                    <Tec><xsl:value-of select="teacher"/></Tec>
+                    </Cno>
+                    <Cnm><xsl:value-of select="name"/></Cnm>
+                    <Cpt><xsl:value-of select="score"/></Cpt>
+                    <Sec><xsl:value-of select="teacher"/></Sec>
                     <Pla><xsl:value-of select="location"/></Pla>
                 </class>
             </xsl:for-each>

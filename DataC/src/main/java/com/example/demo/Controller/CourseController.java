@@ -49,7 +49,7 @@ public class CourseController {
     //此接口将本地课程数据传给中间服务器
     //接口 /course/share?to=?
     //内部调用：服务器的/course/receiveShare?class.xml={file}&to=?
-    @GetMapping("/share")
+    @PostMapping("/share")
     public ResponseVO downloadFile(@RequestParam("to") String to) throws IOException {
         return courseService.share(to);
     }

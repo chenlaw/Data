@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Choices>
+  <choice>
+    <sid>123456789</sid>
+    <cid>123456789</cid>
+    <score>99</score>
+  </choice>
+</Choices>

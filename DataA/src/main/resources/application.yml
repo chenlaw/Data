@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=schoola
+    username: test
+    password: 123456
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jackson:
+    time-zone: GMT+8
+mybatis:
+  mapper-locations: /dataImpl/*.xml
+server:
+  port: 8081

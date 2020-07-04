@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<Classess>
+  <class>
+    <Cno>1</Cno>
+    <Cnm>4</Cnm>
+    <Ctm/>
+    <Cpt>4</Cpt>
+    <Tec>4</Tec>
+    <Pla>4</Pla>
+    <Share>4</Share>
+  </class>
+  <class>
+    <Cno>1239</Cno>
+    <Cnm>12</Cnm>
+    <Ctm/>
+    <Cpt>3</Cpt>
+    <Tec>asdfasd</Tec>
+    <Pla>nju</Pla>
+    <Share>A</Share>
+  </class>
+</Classess>

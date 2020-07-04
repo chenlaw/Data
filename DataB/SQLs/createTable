@@ -1,0 +1,28 @@
+create table account
+(
+    账户名 varchar2(12) primary key ,
+    密码 varchar2(12),
+    级别 number(2)，
+    客体 varchar2(9)
+);
+create table student(
+    学号 varchar2(9) primary key ,
+    姓名 varchar2(10),
+    性别 varchar2(2),
+    专业 varchar2(16),
+    密码 varchar2(6)
+);
+create table curriculum(
+    编号 varchar2(5) primary key ,
+    名称 varchar2(16),
+    课时 varchar2(2),
+    学分 varchar(1),
+    老师 varchar(10),
+    地点 varchar(20),
+    共享 char(1)
+);
+create table selections(
+    课程编号 varchar2(5) ,
+    学生号 varchar2(9) ,
+    得分 varchar2(3)
+);

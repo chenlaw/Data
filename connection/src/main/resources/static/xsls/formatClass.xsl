@@ -9,17 +9,16 @@
                     <id>
                         <xsl:value-of select="课程编号"/>
                         <xsl:value-of select="编号"/>
-                        <xsl:value-of select="cno"/>
+                        <xsl:value-of select="Cno"/>
                     </id>
                     <name>
                         <xsl:value-of select="名称"/>
                         <xsl:value-of select="课程名称"/>
-                        <xsl:value-of select="cnm"/>
+                        <xsl:value-of select="Cnm"/>
                     </name>
-                    <time>0</time>
                     <score>
                         <xsl:value-of select="学分"/>
-                        <xsl:value-of select="cpt"/>
+                        <xsl:value-of select="Cpt"/>
                     </score>
                     <teacher>
                         <xsl:value-of select="老师"/>

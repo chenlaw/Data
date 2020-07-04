@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:shoolb
+    username: test
+    password: 123456
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    hikari:
+      connection-timeout: 200000
+  jackson:
+    time-zone: GMT+8
+mybatis:
+  mapper-locations: /dataImpl/*.xml
+server:
+  port: 8082

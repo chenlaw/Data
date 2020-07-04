@@ -10,7 +10,7 @@
 
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
-                                        <xs:length value="9"/>
+                                        <xs:maxLength value="9"/>
                                     </xs:restriction>
                                 </xs:simpleType>
 
@@ -24,7 +24,6 @@
                                 </xs:simpleType>
 
                             </xs:element>
-                            <xs:element name="time" type="xs:unsignedByte"/>
                             <xs:element name="score">
 
                                 <xs:simpleType>
