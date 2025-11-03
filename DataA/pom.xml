@@ -36,7 +36,7 @@
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId><!--sqlserver依赖  驱动jar-->
             <scope>runtime</scope>
-            <version>6.4.0.jre8</version>
+            <version>10.2.4.jre8</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
